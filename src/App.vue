@@ -1,13 +1,14 @@
 <script setup>
-let htmlText = '<h2>안녕 Vue!</h2>'
+const testFunc = () => {
+  alert('안녕안녕')
+}
 </script>
 
 <template>
-  {{ htmlText }}
-  <div v-text="htmlText"></div>
-  <div v-html="htmlText"></div>
-  <!-- 이렇게는 사용할 수 없음 -->
-  <template v-html="htmlText"></template>
+  <button onclick="alert('자바스크립트 문법')">JS</button>
+  <button onclick="testFunc()">작동 X</button>
+  <button v-on:click="testFunc">버튼</button>
+  <button @click="testFunc">단축어 버튼</button>
 </template>
 
 <style scoped></style>
