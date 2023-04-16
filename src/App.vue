@@ -1,14 +1,20 @@
 <script setup>
-const testFunc = () => {
-  alert('안녕안녕')
+const submitFunc = (event) => {
+  // event.preventDefault()
+  console.log('폼 제출됨!')
+}
+
+const enterFunc = () => {
+  console.log('엔터키 누름!')
 }
 </script>
 
 <template>
-  <button onclick="alert('자바스크립트 문법')">JS</button>
-  <button onclick="testFunc()">작동 X</button>
-  <button v-on:click="testFunc">버튼</button>
-  <button @click="testFunc">단축어 버튼</button>
+  <form @submit.prevent="submitFunc" action="/test" method="get">
+    <textarea @keydown.enter="enterFunc"></textarea>
+    <br />
+    <button type="submit">제출</button>
+  </form>
 </template>
 
 <style scoped></style>
