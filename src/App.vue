@@ -1,16 +1,13 @@
 <script setup>
-let text = '안녕하세요'
-const testFunc = (element) => {
-  return element
-}
+let htmlText = '<h2>안녕 Vue!</h2>'
 </script>
 
 <template>
-  <h1 :id="text" v-bind:class="text">{{ testFunc('123') }}</h1>
+  {{ htmlText }}
+  <div v-text="htmlText"></div>
+  <div v-html="htmlText"></div>
+  <!-- 이렇게는 사용할 수 없음 -->
+  <template v-html="htmlText"></template>
 </template>
 
-<style scoped>
-.안녕하세요 {
-  color: salmon;
-}
-</style>
+<style scoped></style>
