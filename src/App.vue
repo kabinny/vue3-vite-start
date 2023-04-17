@@ -1,18 +1,36 @@
 <script setup>
-// v-if, v-else, v-if-else
-let number = 7
+// v-for
+let arrayData = ['a', 'b', 'c']
+
+let objData = {
+  foo: 'cod',
+  bar: 'ing',
+}
+
+let objArr = [
+  { idx: 0, value: '안녕!' },
+  { idx: 1, value: '뷰!' },
+]
 </script>
 
 <template>
-  <div v-if="number < 5">
-    number의 값이 5 미만입니다.
-    <div>{{ number }}</div>
+  <!-- ["a", "b", "c"] -->
+  {{ arrayData }}
+
+  <!-- Array -->
+  <p v-for="(element, index) in arrayData">{{ index }}: {{ element }}</p>
+
+  <!-- Object -->
+  <p v-for="(value, key, index) in objData">
+    {{ index }}, {{ key }}: {{ value }}
+  </p>
+
+  <!-- Object in Array -->
+  <p v-for="(element, index) in objArr">{{ index }}, {{ element.value }}</p>
+
+  <div v-for="(element, index) in objArr">
+    <p v-for="(value, key) in element">{{ key }}: {{ value }}</p>
   </div>
-  <div v-else-if="5 <= number && number < 10">
-    number의 값이 5 이상 10 미만입니다.
-  </div>
-  <div v-else>number의 값이 10 이상입니다.</div>
-  <div></div>
 </template>
 
 <style scoped></style>
