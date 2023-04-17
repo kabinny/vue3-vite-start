@@ -1,22 +1,18 @@
 <script setup>
-// v-show => false = "display: none"
-let boolean1 = true
-let boolean2 = false
-
-let text1 = '' // false
-let text2 = 'abc' // true
-
-let number1 = 0 // false
-let number2 = 10 // true
+// v-if, v-else, v-if-else
+let number = 7
 </script>
 
 <template>
-  <div v-show="boolean2">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem et facere
-    voluptates commodi. Molestias neque fugiat inventore autem! Porro aut
-    deserunt libero voluptatem, quis explicabo accusamus nesciunt quia impedit
-    dolorum!
+  <div v-if="number < 5">
+    number의 값이 5 미만입니다.
+    <div>{{ number }}</div>
   </div>
+  <div v-else-if="5 <= number && number < 10">
+    number의 값이 5 이상 10 미만입니다.
+  </div>
+  <div v-else>number의 값이 10 이상입니다.</div>
+  <div></div>
 </template>
 
 <style scoped></style>
