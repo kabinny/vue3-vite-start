@@ -1,20 +1,22 @@
 <script setup>
-const submitFunc = (event) => {
-  // event.preventDefault()
-  console.log('폼 제출됨!')
-}
+// v-show => false = "display: none"
+let boolean1 = true
+let boolean2 = false
 
-const enterFunc = () => {
-  console.log('엔터키 누름!')
-}
+let text1 = '' // false
+let text2 = 'abc' // true
+
+let number1 = 0 // false
+let number2 = 10 // true
 </script>
 
 <template>
-  <form @submit.prevent="submitFunc" action="/test" method="get">
-    <textarea @keydown.enter="enterFunc"></textarea>
-    <br />
-    <button type="submit">제출</button>
-  </form>
+  <div v-show="boolean2">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem et facere
+    voluptates commodi. Molestias neque fugiat inventore autem! Porro aut
+    deserunt libero voluptatem, quis explicabo accusamus nesciunt quia impedit
+    dolorum!
+  </div>
 </template>
 
 <style scoped></style>
