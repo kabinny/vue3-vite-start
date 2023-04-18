@@ -1,36 +1,30 @@
-<script setup>
-// v-for
-let arrayData = ['a', 'b', 'c']
-
-let objData = {
-  foo: 'cod',
-  bar: 'ing',
+<script>
+export default {
+  methods: {
+    AlertMethod: function () {
+      alert('Hello!')
+    },
+  },
+  setup() {
+    const AlertMethod2 = () => {
+      alert('Hello!!')
+    }
+    return {
+      AlertMethod2,
+    }
+  },
 }
-
-let objArr = [
-  { idx: 0, value: '안녕!' },
-  { idx: 1, value: '뷰!' },
-]
 </script>
 
+<!-- <script setup>
+const AlertMethod3 = () => {
+  alert('Hello!!!')
+}
+</script> -->
+
 <template>
-  <!-- ["a", "b", "c"] -->
-  {{ arrayData }}
-
-  <!-- Array -->
-  <p v-for="(element, index) in arrayData">{{ index }}: {{ element }}</p>
-
-  <!-- Object -->
-  <p v-for="(value, key, index) in objData">
-    {{ index }}, {{ key }}: {{ value }}
-  </p>
-
-  <!-- Object in Array -->
-  <p v-for="(element, index) in objArr">{{ index }}, {{ element.value }}</p>
-
-  <div v-for="(element, index) in objArr">
-    <p v-for="(value, key) in element">{{ key }}: {{ value }}</p>
-  </div>
+  <button @click="AlertMethod">Option</button>
+  <button @click="AlertMethod2">Composition</button>
 </template>
 
 <style scoped></style>
