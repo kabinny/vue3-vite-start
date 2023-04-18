@@ -1,30 +1,27 @@
+<!-- vue2 -->
 <script>
 export default {
-  methods: {
-    AlertMethod: function () {
-      alert('Hello!')
-    },
-  },
-  setup() {
-    const AlertMethod2 = () => {
-      alert('Hello!!')
-    }
+  data() {
+    let TextData = 'Hello'
     return {
-      AlertMethod2,
+      TextData,
+    }
+  },
+}
+</script>
+<!-- vue3 -->
+<script>
+import { ref } from 'vue'
+export default {
+  setup() {
+    let TextData2 = ref('Hello2')
+    return {
+      TextData2,
     }
   },
 }
 </script>
 
-<!-- <script setup>
-const AlertMethod3 = () => {
-  alert('Hello!!!')
-}
-</script> -->
-
-<template>
-  <button @click="AlertMethod">Option</button>
-  <button @click="AlertMethod2">Composition</button>
-</template>
+<template></template>
 
 <style scoped></style>
