@@ -1,44 +1,63 @@
 <script>
 // Vue3
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 export default {
   setup() {
+    // ref와 reactive 어떤 것으로 반응형 데이터를 만들어도 상관없다.
+
+    // ref는 모든 값 가능
+    // 값을 바꿀 때는 .value
     let NumData = ref(0)
 
-    const PlusMethod = () => {
-      // this를 사용하지 않기 때문에 화살표 함수 OK
-      // 반응형 데이터를 위해 ref를 썼는데,
-      // ref는 내부적으로 객체처럼 값을 다루기 때문에 .value로 접근
+    // ref로 객체
+    let NumData2 = ref({
+      foo: 'ref 안녕',
+      bar: 0,
+    })
+
+    // reactive는 복합 데이터만. obj 형태
+    // 값을 바꿀 때는 바로 (.value X)
+    let Data = reactive({
+      foo: 'reactive 안녕',
+      bar: 0,
+    })
+
+    const ChangeNumData = () => {
       NumData.value++
     }
 
-    return {
-      NumData,
-      PlusMethod,
+    const ChangeNumData2 = () => {
+      NumData2.value.bar++
     }
-  },
-}
 
-/* Vue2
-export default {
-  data() {
-    let NumData = 0
+    const ChangeData = () => {
+      Data.bar++
+    }
+
     return {
       NumData,
+      NumData2,
+      Data,
+      ChangeNumData,
+      ChangeNumData2,
+      ChangeData,
     }
   },
-  methods: {
-    PlusMethod: function () {
-      // this에 접근해야 하기 때문에 화살표 함수 사용 X
-      this.NumData++
-    },
-  },
 }
-*/
 </script>
 
 <template>
-  <button @click="PlusMethod">{{ NumData }}</button>
+  <p @click="ChangeNumData">
+    {{ NumData }}
+  </p>
+
+  <p @click="ChangeNumData2">
+    {{ NumData2 }}
+  </p>
+
+  <p @click="ChangeData">
+    {{ Data }}
+  </p>
 </template>
 
 <style scoped></style>
