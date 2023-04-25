@@ -1,41 +1,23 @@
-<script>
+<script setup>
 import { ref, computed } from 'vue'
 
-export default {
-  setup() {
-    const a = ref(0)
-    const plusOne = computed(() => a.value + 1)
-
-    console.log(plusOne.value)
-    // plusOne.value++
-    // activity.esm-bundler.js:1188 Write operation failed: computed value is readonly
-
-    return {
-      a,
-      plusOne,
-    }
+const count = ref(0)
+const calculated = computed({
+  get: () => count.value + 1,
+  set: (val) => {
+    count.value = val
   },
+})
+const computedSetter = () => {
+  calculated.value = 10
 }
-
-/* vue 2
-export default {
-  data() {
-    return {
-      a: 0,
-    }
-  },
-  computed: {
-    plusOne: function () {
-      return this.a + 1
-    },
-  },
-}
-*/
 </script>
 
 <template>
-  <div>a: {{ a }}</div>
-  <div>plusOne: {{ plusOne }}</div>
+  <div>count: {{ count }}</div>
+  <div>calculated: {{ calculated }}</div>
+
+  <button @click="computedSetter">click!</button>
 </template>
 
 <style scoped></style>
