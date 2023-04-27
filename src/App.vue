@@ -2,10 +2,10 @@
 export default {
   data() {
     let count = 0
-    let text = ''
+    let watchCount = 2
     return {
       count,
-      text,
+      watchCount,
     }
   },
   methods: {
@@ -13,18 +13,23 @@ export default {
       this.count++
     },
   },
+  computed: {
+    getDouble: function () {
+      return this.count * 2
+    },
+  },
   watch: {
-    count: function (newValue, oldValue) {
-      console.log(newValue, oldValue)
-      this.text = `${oldValue}에서 ${newValue}로 변경되었습니다.`
+    count: function (newValue) {
+      this.watchCount = newValue * 2
     },
   },
 }
 </script>
 
 <template>
-  <p>{{ count }}</p>
-  <p>{{ text }}</p>
+  <p>원본 값: {{ count }}</p>
+  <p>computed: {{ getDouble }}</p>
+  <p>watch: {{ watchCount }}</p>
   <button @click="IncreaseCount">+1</button>
 </template>
 
