@@ -1,26 +1,28 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 
 const count = ref(0)
-const trigger = ref(false)
-const triggerHandler = () => {
-  trigger.value = !trigger.value
-}
 const IncreaseCount = () => {
   count.value++
+}
+
+const stop = watchEffect(() => {
+  console.log(count.value)
+  // 내부에서 호출해도 됨
+  // if (count.value > 10) stop()
+})
+
+const stopMethod = () => {
+  stop()
 }
 </script>
 
 <template>
-  <p @click="triggerHandler">{{ trigger }}</p>
-  <HelloWorld v-if="trigger" :count="count" />
-  <button @click="IncreaseCount">{{ count }}</button>
+  <p>원본 값: {{ count }}</p>
+  <button @click="IncreaseCount">+1</button>
+  <button @click="stopMethod">stop!</button>
+  <!-- 함수로 감싸지 않고 바로 호출해도 됨 -->
+  <button @click="stop()">stop!!</button>
 </template>
 
-<style>
-p {
-  user-select: none;
-  cursor: pointer;
-}
-</style>
+<style></style>

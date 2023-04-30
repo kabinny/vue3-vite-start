@@ -1,18 +1,5 @@
-<script setup>
-import { defineProps, watchEffect } from 'vue'
+<script setup></script>
 
-const props = defineProps({
-  count: Number,
-})
-
-// 이 컴포넌트가 unmount되면 작동하지 않는다.
-watchEffect(() => {
-  console.log(props.count)
-})
-</script>
-
-<template>
-  <p>props: {{ props.count }}</p>
-</template>
+<template></template>
 
 <style scoped></style>
