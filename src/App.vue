@@ -1,41 +1,41 @@
 <script setup>
-import { ref, watchEffect, watchPostEffect, watchSyncEffect } from 'vue'
+import { ref, watch } from 'vue'
 
 const count = ref(0)
+const count2 = ref(0)
 const IncreaseCount = () => {
   count.value++
 }
+const IncreaseCount2 = () => {
+  count2.value++
+}
 
-watchEffect(
-  () => {
-    console.log('pre', count.value)
+watch(
+  // 하나만 감시하는 경우
+  // count,
+  // (newValue, oldValue) => {
+  //   console.log(oldValue, ' >> ', newValue)
+  // },
+
+  // 여러개 있는 경우
+  [count, count2],
+  ([newCount, newCount2], [oldCount, oldCount2]) => {
+    console.log('count: ', oldCount, ' >> ', newCount)
+    console.log('count2: ', oldCount2, ' >> ', newCount2)
   },
   {
-    onTrack(e) {
-      console.log('on Track', e)
-    },
-    onTrigger(e) {
-      console.log('on Trigger', e)
-    },
-    flush: 'pre',
-    // flush: 'post',
-    // flush: 'sync',
+    // immediate: false -> 마운트 될 때 실행되지 않고, 데이터가 변경되어야 실행
+    immediate: true,
   }
 )
-
-// 가장 마지막에 동작
-watchPostEffect(() => {
-  console.log('post', count.value)
-})
-
-watchSyncEffect(() => {
-  console.log('sync', count.value)
-})
 </script>
 
 <template>
   <p>원본 값: {{ count }}</p>
   <button @click="IncreaseCount">+1</button>
+  <hr />
+  <p>원본 값2: {{ count2 }}</p>
+  <button @click="IncreaseCount2">+1</button>
 </template>
 
 <style></style>
