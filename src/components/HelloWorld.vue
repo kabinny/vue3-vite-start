@@ -1,5 +1,9 @@
-<script setup></script>
+<script setup>
+import TestComponent from './TestComponent.vue'
+</script>
 
-<template></template>
+<template>
+  <TestComponent id="middle" class="middle" />
+</template>
 
 <style scoped></style>
