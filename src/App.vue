@@ -1,11 +1,14 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+
+const text = 'Hello!!!'
+const AlertMethod = () => {
+  alert(text)
+}
 </script>
 
 <template>
-  <div>AppVue</div>
-  <HelloWorld id="hello" class="world" placeholder="안녕!" />
-  <hello-world />
+  <HelloWorld @click="AlertMethod" id="안녕뷰" />
 </template>
 
 <style></style>

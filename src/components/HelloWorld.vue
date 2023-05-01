@@ -1,9 +1,22 @@
+<script>
+import { useAttrs } from 'vue'
+
+export default {
+  inheritAttrs: false,
+}
+</script>
+
 <script setup>
-import TestComponent from './TestComponent.vue'
+import { useAttrs } from 'vue'
+
+const attrs = useAttrs()
+console.log(attrs)
 </script>
 
 <template>
-  <TestComponent id="middle" class="middle" />
+  <button>No Attrs</button>
+  <button :id="attrs.id" @click="attrs.onClick">HelloWorldVue!</button>
+  <button>No Attrs</button>
 </template>
 
 <style scoped></style>
