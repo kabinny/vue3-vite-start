@@ -10,12 +10,17 @@ const props = defineProps({
       return props > 5
     },
   },
+  PlusOne: Function,
 })
+
+const ChildPlusOne = () => {
+  props.PropsData++
+}
 </script>
 
 <template>
-  <div>{{ props.PropsData }}</div>
-  <hr />
+  <button @click="props.PlusOne">{{ props.PropsData }}</button>
+  <button @click="ChildPlusOne">Child: {{ props.PropsData }}</button>
 </template>
 
 <style scoped></style>

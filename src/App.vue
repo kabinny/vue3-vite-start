@@ -3,14 +3,17 @@
 // 2. object, boolean 특별한 사용법
 // 3. props 유효성 검사
 // 4. function을 props로 보낼 때 유의해야 할 사항
+import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
-let BooleanData = true
+let NumberData = ref(3)
+const PlusOne = () => {
+  NumberData.value++
+}
 </script>
 
 <template>
-  <HelloWorld :PropsData="BooleanData" />
-  <HelloWorld :PropsData="3" />
+  <HelloWorld :PropsData="NumberData" :PlusOne="PlusOne" />
 </template>
 
 <style></style>
