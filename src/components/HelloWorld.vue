@@ -1,12 +1,11 @@
 <script setup>
 // import { defineProps } from 'vue'
 
-const props = defineProps(['foo', 'bar'])
+const props = defineProps(['ObjectData'])
 </script>
 
 <template>
-  <div>{{ props.foo }}</div>
-  <div>{{ props.bar }}</div>
+  <div>{{ props.ObjectData }}</div>
   <hr />
 </template>
 

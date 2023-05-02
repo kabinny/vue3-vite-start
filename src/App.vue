@@ -12,7 +12,7 @@ let ObjectData = {
 </script>
 
 <template>
-  <HelloWorld v-bind="ObjectData" />
+  <HelloWorld v-bind:ObjectData="ObjectData" />
 </template>
 
 <style></style>
