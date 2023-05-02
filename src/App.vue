@@ -5,14 +5,11 @@
 // 4. function을 props로 보낼 때 유의해야 할 사항
 import HelloWorld from './components/HelloWorld.vue'
 
-let ObjectData = {
-  foo: 'hello',
-  bar: 'vue!',
-}
+let BooleanData = true
 </script>
 
 <template>
-  <HelloWorld v-bind:ObjectData="ObjectData" />
+  <HelloWorld />
 </template>
 
 <style></style>
