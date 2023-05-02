@@ -9,7 +9,8 @@ let BooleanData = true
 </script>
 
 <template>
-  <HelloWorld />
+  <HelloWorld :PropsData="BooleanData" />
+  <HelloWorld :PropsData="3" />
 </template>
 
 <style></style>

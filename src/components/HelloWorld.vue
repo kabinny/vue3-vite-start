@@ -2,13 +2,19 @@
 // import { defineProps } from 'vue'
 
 const props = defineProps({
-  BooleanData: Boolean,
+  PropsData: {
+    type: Number,
+    required: true,
+    default: 0,
+    validator(props) {
+      return props > 5
+    },
+  },
 })
-console.log(props.BooleanData)
 </script>
 
 <template>
-  <div>{{ props.BooleanData }}</div>
+  <div>{{ props.PropsData }}</div>
   <hr />
 </template>
 
