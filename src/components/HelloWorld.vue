@@ -1,26 +1,22 @@
 <script setup>
-// import { defineProps } from 'vue'
+import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps({
   PropsData: {
     type: Number,
     required: true,
     default: 0,
-    validator(props) {
-      return props > 5
-    },
   },
-  PlusOne: Function,
 })
 
-const ChildPlusOne = () => {
-  props.PropsData++
-}
+// const emits = defineEmits(['IncreaseOne'])
+const emits = defineEmits({
+  IncreaseOne: null,
+})
 </script>
 
 <template>
-  <button @click="props.PlusOne">{{ props.PropsData }}</button>
-  <button @click="ChildPlusOne">Child: {{ props.PropsData }}</button>
+  <button @click="$emit('IncreaseOne')">{{ props.PropsData }}</button>
 </template>
 
 <style scoped></style>

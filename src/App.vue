@@ -1,19 +1,17 @@
 <script setup>
-// 1. 모든 데이터 타입을 전달할 수 있는가
-// 2. object, boolean 특별한 사용법
-// 3. props 유효성 검사
-// 4. function을 props로 보낼 때 유의해야 할 사항
+// 1. 자식은 이름을 지어서 내보낸다.
+// 2. 부모는 그 이름으로 받아서 함수를 실행시킨다.
 import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 let NumberData = ref(3)
-const PlusOne = () => {
+const IncreaseOne = () => {
   NumberData.value++
 }
 </script>
 
 <template>
-  <HelloWorld :PropsData="NumberData" :PlusOne="PlusOne" />
+  <HelloWorld :PropsData="NumberData" @IncreaseOne="IncreaseOne" />
 </template>
 
 <style></style>
