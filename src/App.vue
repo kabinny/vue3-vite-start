@@ -5,13 +5,14 @@ import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 let NumberData = ref(3)
-const IncreaseOne = () => {
-  NumberData.value++
+const IncreaseOne = (payload) => {
+  console.log(payload)
+  NumberData.value += payload.value
 }
 </script>
 
 <template>
-  <HelloWorld :PropsData="NumberData" @IncreaseOne="IncreaseOne" />
+  <HelloWorld :PropsData="NumberData" @IncreaseByAmount="IncreaseOne" />
 </template>
 
 <style></style>
