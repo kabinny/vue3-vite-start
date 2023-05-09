@@ -1,36 +1,22 @@
 <script setup>
-import { defineProps, defineEmits } from 'vue'
-
 const props = defineProps({
-  PropsData: {
-    type: Number,
+  TextData: {
+    type: String,
     required: true,
-    default: 0,
+    default: '',
   },
 })
 
-const emits = defineEmits({
-  IncreaseByAmount: (element) => {
-    if (typeof element === 'number' && element > 0) {
-      return true
-    } else {
-      return false
-    }
-  },
-})
-
-const emitMethod = () => {
-  let payload = {
-    foo: 'hello',
-    bar: 'vue!',
-    value: -1,
-  }
-  emits('IncreaseByAmount', payload)
-}
+const emits = defineEmits(['update:TextData'])
 </script>
 
 <template>
-  <button @click="emitMethod">{{ props.PropsData }}</button>
+  <p>{{ props.TextData }}</p>
+  <input
+    type="text"
+    :value="props.TextData"
+    @input="$emit('update:TextData', $event.target.value)"
+  />
 </template>
 
 <style scoped></style>
