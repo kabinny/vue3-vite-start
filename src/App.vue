@@ -2,11 +2,18 @@
 import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
-let TextData = ref('vue!')
+let api_key = ref('api-key')
 </script>
 
 <template>
-  <HelloWorld v-model:TextData="TextData" />
+  <HelloWorld :api_key="api_key">
+    <template #default="{ title, content }">
+      <div>
+        <h2>{{ title }}</h2>
+        <p>{{ content }}</p>
+      </div>
+    </template>
+  </HelloWorld>
 </template>
 
 <style></style>
