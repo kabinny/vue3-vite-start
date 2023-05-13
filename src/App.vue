@@ -1,19 +1,13 @@
 <script setup>
-import { ref } from 'vue'
+import { provide, ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
-let api_key = ref('api-key')
+let msg = '안녕!!'
+provide('msg', msg)
 </script>
 
 <template>
-  <HelloWorld :api_key="api_key">
-    <template #default="{ title, content }">
-      <div>
-        <h2>{{ title }}</h2>
-        <p>{{ content }}</p>
-      </div>
-    </template>
-  </HelloWorld>
+  <HelloWorld />
 </template>
 
 <style></style>
