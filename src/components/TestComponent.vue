@@ -1,10 +1,14 @@
 <script setup>
 import { inject } from 'vue'
 
-let msg = inject('msg')
+let { count, ChangeCount } = inject('count')
+
+const Increase = () => {
+  ChangeCount()
+}
 </script>
 
 <template>
   <h3>TestComponent</h3>
-  <p>{{ msg }}</p>
+  <button @click="Increase">{{ count }}</button>
 </template>
