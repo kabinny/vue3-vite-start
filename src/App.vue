@@ -1,16 +1,27 @@
 <script setup>
-import { provide, ref } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
 
-let count = ref(0)
-const ChangeCount = () => {
-  count.value++
+let idData = ref('')
+const input = ref(null) // mount 이후 요소 참조
+
+const submitFunc = () => {
+  if (!idData.value) {
+    alert('인풋 태그 내용을 채워주세요')
+
+    if (input != null) {
+      input.value.focus()
+    }
+    return
+  }
+  console.log('폼 제출')
 }
-provide('count', { count, ChangeCount })
 </script>
 
 <template>
-  <HelloWorld />
+  <form @submit.prevent="submitFunc">
+    <input ref="input" type="text" v-model="idData" />
+    <button type="submit">제출</button>
+  </form>
 </template>
 
 <style></style>
