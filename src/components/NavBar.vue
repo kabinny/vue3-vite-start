@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const props = defineProps({
   category: String,
@@ -33,6 +34,9 @@ const setClassName = (element) => {
     >
       Upload
     </li>
+    <router-link to="/">Main</router-link>
+    <router-link to="/list">List</router-link>
+    <router-link to="/upload">Upload</router-link>
   </ul>
 </template>
 
@@ -50,7 +54,8 @@ ul {
   font-weight: bold;
 }
 
-li {
+li,
+a {
   margin-left: 1rem;
   cursor: pointer;
   user-select: none;

@@ -21,6 +21,8 @@ const ComponentList = {
 <template>
   <NavBar :category="category" @setCategory="setCategory" />
   <component :is="ComponentList[category]"></component>
+  <hr />
+  <router-view></router-view>
 </template>
 
 <style></style>
