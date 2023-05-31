@@ -2,9 +2,13 @@
 
 <template>
   <ul>
-    <li><router-link to="/">Main</router-link></li>
-    <li><router-link to="/list">List</router-link></li>
-    <li><router-link to="/upload">Upload</router-link></li>
+    <li><routerLink :to="{ name: 'Main' }">Main</routerLink></li>
+    <li>
+      <routerLink :to="{ name: 'List', params: { test: 'test' } }">
+        List
+      </routerLink>
+    </li>
+    <li><routerLink :to="{ name: 'Upload' }">Upload</routerLink></li>
   </ul>
 </template>
 

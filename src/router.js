@@ -4,9 +4,9 @@ import ListComponent from './components/ListComponent.vue'
 import UploadComponent from './components/UploadComponent.vue'
 
 const routes = [
-  { path: '/', component: MainComponent },
-  { path: '/list', component: ListComponent },
-  { path: '/upload', component: UploadComponent },
+  { path: '/', name: 'Main', component: MainComponent, props: { foo: 'bar' } },
+  { path: '/list', name: 'List', component: ListComponent, props: true },
+  { path: '/upload', name: 'Upload', component: UploadComponent },
 ]
 
 const router = createRouter({
