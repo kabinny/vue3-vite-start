@@ -6,5 +6,7 @@ const props = defineProps(['test'])
 
 <template>
   <h1>List Component</h1>
-  {{ props.test }}
+  <!-- {{ props.test }} -->
+  <p>props: {{ props.test }}</p>
+  <p>params: {{ $route.params.test }}</p>
 </template>
