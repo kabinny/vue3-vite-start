@@ -4,6 +4,9 @@ import { useRouter, useRoute } from 'vue-router'
 const props = defineProps(['id'])
 
 const router = useRouter()
+const route = useRoute()
+
+console.log(route.params.id, route.path)
 
 const goListFunc = () => {
   router.push({
