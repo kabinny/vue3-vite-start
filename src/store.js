@@ -14,12 +14,10 @@ const store = createStore({
       state.count--
     },
     incrementByAmount(state, payload) {
-      console.log(payload)
-      // state.count++
+      state.count += payload
     },
     decrementByAmount(state, payload) {
-      console.log(payload)
-      // state.count--
+      state.count -= payload
     },
   },
 })
